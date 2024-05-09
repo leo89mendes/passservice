@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
@@ -26,7 +27,7 @@ class BannerResource extends Resource
     {
         return $form
             ->schema([
-                Filament\Forms\Components\FileUpload::make('desktop')->multiple()->image()
+                FileUpload::make('desktop')->multiple()->image()
                 ->disk('public')->directory('banners/desktop')
                 ->imageEditor()->maxFiles(2)
                 ->imageEditorAspectRatios([
@@ -34,7 +35,7 @@ class BannerResource extends Resource
                     '4:3',
                     '1:1',
                 ]),
-                Filament\Forms\Components\FileUpload::make('mobile')->multiple()->image()
+                FileUpload::make('mobile')->multiple()->image()
                 ->disk('public')->directory('banners/mobile')
                 ->imageEditor()->maxFiles(2)
                 ->imageEditorAspectRatios([
