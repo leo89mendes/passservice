@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -48,9 +49,9 @@ class BannerResource extends Resource
     {
         return $table
             ->columns([
-                Filament\Tables\Columns\ImageColumn::make('desktop')->size(150)
+                ImageColumn::make('desktop')->size(150)
                 ->stacked()->limit(3),
-                Filament\Tables\Columns\ImageColumn::make('mobile')->size(150)
+                ImageColumn::make('mobile')->size(150)
                 ->stacked()->limit(3)
             ])
             ->filters([
