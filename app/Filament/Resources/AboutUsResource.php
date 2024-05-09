@@ -75,7 +75,7 @@ class AboutUsResource extends Resource
     public static function getPages(): array
     {
         return [
-           // 'index' => Pages\ListAboutUs::route('/')
+            'index' => Pages\ListAboutUs::route('/')
         ];
     }
 }
