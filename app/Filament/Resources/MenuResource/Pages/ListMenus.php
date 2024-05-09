@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\MenuResource\Pages;
 
 use App\Filament\Resources\MenuResource;
-use Filament\Actions;
+use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListMenus extends ListRecords
