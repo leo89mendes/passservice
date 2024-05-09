@@ -2,14 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AboutUsResource\Pages;
-use App\Filament\Resources\AboutUsResource\RelationManagers;
+use App\Filament\Resources\TesteResource\Pages;
+use App\Filament\Resources\TesteResource\RelationManagers;
 use App\Models\AboutUs;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Resources\Form;
 use Filament\Resources\Resource;
+use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
