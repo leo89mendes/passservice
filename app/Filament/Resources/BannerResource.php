@@ -50,9 +50,9 @@ class BannerResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('desktop')->size(150)
-                ->stacked()->limit(3),
+                ->limit(3),
                 ImageColumn::make('mobile')->size(150)
-                ->stacked()->limit(3)
+                ->limit(3)
             ])
             ->filters([
                 //
