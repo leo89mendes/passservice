@@ -19,7 +19,7 @@ class ConfigResource extends Resource
 
     protected static ?string $navigationLabel = 'Configuração';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-user';
 
     protected static ?int $navigationSort = 6;
 
