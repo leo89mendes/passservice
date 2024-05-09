@@ -17,16 +17,28 @@ class AboutUsResource extends Resource
 {
     protected static ?string $model = AboutUs::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationLabel = 'Sobre Nós';
+
+    protected static ?string $navigationIcon = 'heroicon-s-document';
+
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Tables\Columns\TextColumn::make('title')->label('Titulo'),
-                Tables\Columns\TextColumn::make('description')
-                    ->wrap()->html()->label('Descrição'),
-                Tables\Columns\ImageColumn::make('image')->size(80)->label('Imagem'),
+                Forms\Components\TextInput::make('title')
+                ->label('Titulo')
+                ->required()
+                ->maxLength(255),
+            Forms\Components\RichEditor::make('description')
+                ->label('Descrição')
+                ->required(),
+            Forms\Components\FileUpload::make('image')
+                ->image()
+                ->label('Iamgem')
+                ->directory('images/aboutus')
+                ->required(),
             ]);
     }
 
@@ -34,7 +46,10 @@ class AboutUsResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')->label('Titulo'),
+                Tables\Columns\TextColumn::make('description')
+                    ->wrap()->html()->label('Descrição'),
+                Tables\Columns\ImageColumn::make('image')->size(80)->label('Imagem'),
             ])
             ->filters([
                 //
