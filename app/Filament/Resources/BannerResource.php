@@ -28,21 +28,9 @@ class BannerResource extends Resource
         return $form
             ->schema([
                 FileUpload::make('desktop')->multiple()->image()
-                ->disk('public')->directory('banners/desktop')
-                ->imageEditor()->maxFiles(2)
-                ->imageEditorAspectRatios([
-                    '16:9',
-                    '4:3',
-                    '1:1',
-                ]),
+                ->disk('public')->directory('banners/desktop'),
                 FileUpload::make('mobile')->multiple()->image()
                 ->disk('public')->directory('banners/mobile')
-                ->imageEditor()->maxFiles(2)
-                ->imageEditorAspectRatios([
-                    '16:9',
-                    '4:3',
-                    '1:1',
-                ])
             ]);
     }
 
