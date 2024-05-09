@@ -23,7 +23,10 @@ class AboutUsResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Tables\Columns\TextColumn::make('title')->label('Titulo'),
+                Tables\Columns\TextColumn::make('description')
+                    ->wrap()->html()->label('Descrição'),
+                Tables\Columns\ImageColumn::make('image')->size(80)->label('Imagem'),
             ]);
     }
 
