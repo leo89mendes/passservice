@@ -25,7 +25,7 @@ class BannerResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('desktop')->multiple()->image()
+                Filament\Forms\Components\FileUpload::make('desktop')->multiple()->image()
                 ->disk('public')->directory('banners/desktop')
                 ->imageEditor()->maxFiles(2)
                 ->imageEditorAspectRatios([
@@ -33,7 +33,7 @@ class BannerResource extends Resource
                     '4:3',
                     '1:1',
                 ]),
-                FileUpload::make('mobile')->multiple()->image()
+                Filament\Forms\Components\FileUpload::make('mobile')->multiple()->image()
                 ->disk('public')->directory('banners/mobile')
                 ->imageEditor()->maxFiles(2)
                 ->imageEditorAspectRatios([
@@ -48,9 +48,9 @@ class BannerResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('desktop')->size(150)
+                Filament\Tables\Columns\ImageColumn::make('desktop')->size(150)
                 ->stacked()->limit(3),
-                ImageColumn::make('mobile')->size(150)
+                Filament\Tables\Columns\ImageColumn::make('mobile')->size(150)
                 ->stacked()->limit(3)
             ])
             ->filters([
