@@ -3,14 +3,14 @@
 namespace App\Filament\Resources\AboutUsResource\Pages;
 
 use App\Filament\Resources\AboutUsResource;
-use Filament\Actions;
+use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
 class EditAboutUs extends EditRecord
 {
     protected static string $resource = AboutUsResource::class;
 
-    protected function getHeaderActions(): array
+    protected function getActions(): array
     {
         return [
             Actions\DeleteAction::make(),
