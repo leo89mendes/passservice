@@ -10,7 +10,7 @@ class ListMenus extends ListRecords
 {
     protected static string $resource = MenuResource::class;
 
-    protected function getHeaderActions(): array
+    protected function getActions(): array
     {
         return [
             Actions\CreateAction::make(),

@@ -10,7 +10,7 @@ class ListAboutUs extends ListRecords
 {
     protected static string $resource = AboutUsResource::class;
 
-    protected function getHeaderActions(): array
+    protected function getActions(): array
     {
         return [
            // Actions\CreateAction::make(),
