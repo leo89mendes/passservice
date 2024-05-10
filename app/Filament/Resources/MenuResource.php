@@ -19,7 +19,7 @@ class MenuResource extends Resource
 
     protected static ?string $navigationLabel = 'Menu';
 
-    protected static ?string $navigationIcon = 'heroicon-s-bars-3';
+    protected static ?string $navigationIcon = 'heroicon-s-document';
 
     protected static ?int $navigationSort = 1;
 
