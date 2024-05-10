@@ -3,17 +3,17 @@
 namespace App\Filament\Resources\BannerResource\Pages;
 
 use App\Filament\Resources\BannerResource;
-use Filament\Pages\Actions;
-use Filament\Resources\Pages\ManageRecords;
+use Filament\Actions;
+use Filament\Resources\Pages\EditRecord;
 
-class ManageBanners extends ManageRecords
+class EditBanner extends EditRecord
 {
     protected static string $resource = BannerResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\DeleteAction::make(),
         ];
     }
 }

@@ -6,10 +6,10 @@ use App\Filament\Resources\MenuResource\Pages;
 use App\Filament\Resources\MenuResource\RelationManagers;
 use App\Models\Menu;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -19,7 +19,7 @@ class MenuResource extends Resource
 
     protected static ?string $navigationLabel = 'Menu';
 
-    protected static ?string $navigationIcon = 'heroicon-s-document';
+    protected static ?string $navigationIcon = 'heroicon-s-bars-3';
 
     protected static ?int $navigationSort = 1;
 
@@ -38,9 +38,9 @@ class MenuResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('menu')
+            Tables\Columns\TextColumn::make('menu')
                 ->searchable(),
-                Tables\Columns\TextColumn::make('links'),
+            Tables\Columns\TextColumn::make('links'),
             ])
             ->filters([
                 //
@@ -50,14 +50,24 @@ class MenuResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
-    
+
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageMenus::route('/'),
+            'index' => Pages\ListMenus::route('/')
         ];
-    }    
+    }
 }

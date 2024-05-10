@@ -6,10 +6,10 @@ use App\Filament\Resources\AboutUsResource\Pages;
 use App\Filament\Resources\AboutUsResource\RelationManagers;
 use App\Models\AboutUs;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -28,17 +28,17 @@ class AboutUsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                ->label('Titulo')
-                ->required()
-                ->maxLength(255),
-            Forms\Components\RichEditor::make('description')
-                ->label('Descrição')
-                ->required(),
-            Forms\Components\FileUpload::make('image')
-                ->image()
-                ->label('Iamgem')
-                ->directory('images/aboutus')
-                ->required(),
+                    ->label('Titulo')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Descrição')
+                    ->required(),
+                Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->label('Iamgem')
+                    ->directory('images/aboutus')
+                    ->required(),
             ]);
     }
 
@@ -56,25 +56,26 @@ class AboutUsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                //Tables\Actions\DeleteAction::make()
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    //Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAboutUs::route('/'),
-            'create' => Pages\CreateAboutUs::route('/create'),
-            'edit' => Pages\EditAboutUs::route('/{record}/edit'),
+            'index' => Pages\ListAboutUs::route('/')
         ];
-    }    
+    }
 }

@@ -6,10 +6,10 @@ use App\Filament\Resources\ServicesResource\Pages;
 use App\Filament\Resources\ServicesResource\RelationManagers;
 use App\Models\Services;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -19,7 +19,7 @@ class ServicesResource extends Resource
 
     protected static ?string $navigationLabel = 'Serviços';
 
-    protected static ?string $navigationIcon = 'heroicon-s-document';
+    protected static ?string $navigationIcon = 'heroicon-m-truck';
 
     protected static ?int $navigationSort = 4;
 
@@ -62,14 +62,16 @@ class ServicesResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ManageServices::route('/'),
         ];
-    }    
+    }
 }

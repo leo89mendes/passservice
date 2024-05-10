@@ -6,12 +6,12 @@ use App\Filament\Resources\BannerResource\Pages;
 use App\Filament\Resources\BannerResource\RelationManagers;
 use App\Models\Banner;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
-use Filament\Forms\Components\FileUpload;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -28,9 +28,21 @@ class BannerResource extends Resource
         return $form
             ->schema([
                 FileUpload::make('desktop')->multiple()->image()
-                ->disk('public')->directory('banners/desktop'),
+                ->disk('public')->directory('banners/desktop')
+                ->imageEditor()->maxFiles(2)
+                ->imageEditorAspectRatios([
+                    '16:9',
+                    '4:3',
+                    '1:1',
+                ]),
                 FileUpload::make('mobile')->multiple()->image()
                 ->disk('public')->directory('banners/mobile')
+                ->imageEditor()->maxFiles(2)
+                ->imageEditorAspectRatios([
+                    '16:9',
+                    '4:3',
+                    '1:1',
+                ])
             ]);
     }
 
@@ -38,8 +50,10 @@ class BannerResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('desktop')->size(150),
+                ImageColumn::make('desktop')->size(150)
+                ->stacked()->limit(3),
                 ImageColumn::make('mobile')->size(150)
+                ->stacked()->limit(3)
             ])
             ->filters([
                 //
@@ -49,14 +63,23 @@ class BannerResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
-    
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageBanners::route('/'),
+            'index' => Pages\ListBanners::route('/'),
         ];
-    }    
+    }
 }

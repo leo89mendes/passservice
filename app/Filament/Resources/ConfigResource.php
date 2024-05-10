@@ -6,10 +6,10 @@ use App\Filament\Resources\ConfigResource\Pages;
 use App\Filament\Resources\ConfigResource\RelationManagers;
 use App\Models\Config;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -19,7 +19,7 @@ class ConfigResource extends Resource
 
     protected static ?string $navigationLabel = 'Configuração';
 
-    protected static ?string $navigationIcon = 'heroicon-s-user';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?int $navigationSort = 6;
 
@@ -55,7 +55,7 @@ class ConfigResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('time')
-                ->label('Horários'),
+                    ->label('Horários'),
                 Tables\Columns\TextColumn::make('mobile')
                     ->label('Telefone'),
                 Tables\Columns\TextColumn::make('service_title')
@@ -70,17 +70,18 @@ class ConfigResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    //Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
-    
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ManageConfigs::route('/'),
         ];
-    }    
+    }
 }
