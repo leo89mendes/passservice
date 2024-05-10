@@ -19,7 +19,7 @@ class ServicesResource extends Resource
 
     protected static ?string $navigationLabel = 'Serviços';
 
-    protected static ?string $navigationIcon = 'heroicon-m-truck';
+    protected static ?string $navigationIcon = 'heroicon-s-document';
 
     protected static ?int $navigationSort = 4;
 
