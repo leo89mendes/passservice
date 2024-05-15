@@ -36,6 +36,7 @@ class BannerResource extends Resource
                 ->disk('public')->directory('banners/mobile')
                 ->imageEditor()->maxFiles(3)
                 ->imageResizeTargetWidth('800')
+                ->minSize(480)
                 ->imageResizeTargetHeight('180'),
             ]);
     }

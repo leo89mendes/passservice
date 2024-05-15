@@ -4,7 +4,7 @@
             <img alt="Chat on WhatsApp" width="65" src="{{ asset('storage/images/icons/whatsapp.png') }}"/>
         <a />
     </div>
-    <div class="menu desktop w-full py-6 bg-white border-b-2 border-black justify-center hidden md:block">
+    <div class="menu desktop w-full py-6 bg-white border-b-2 border-[#0D72BE] justify-center hidden md:block">
         <div class="flex h-10 items-center justify-center">
             @foreach ($menu as $m)
                 <div class="px-4 hover:text-[#86cee9] cursor-pointer ">{{ $m->menu }}</div>
