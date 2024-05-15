@@ -1,7 +1,7 @@
 <div class="w-full">
     <div class="fixed mt-[20%] right-4 z-50">
         <a target="_blank" href="https://wa.me/11979900750">    
-            <img alt="Chat on WhatsApp" width="65" src="images/icons/whatsapp.png"/>
+            <img alt="Chat on WhatsApp" width="65" src="{{ asset('storage/images/icons/whatsapp.png') }}"/>
         <a />
     </div>
     <div class="menu desktop w-full py-6 bg-white border-b-2 border-black justify-center hidden md:block">
