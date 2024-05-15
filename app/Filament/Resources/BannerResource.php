@@ -29,20 +29,14 @@ class BannerResource extends Resource
             ->schema([
                 FileUpload::make('desktop')->multiple()->image()
                 ->disk('public')->directory('banners/desktop')
-                ->imageEditor()->maxFiles(2)
-                ->imageEditorAspectRatios([
-                    '16:9',
-                    '4:3',
-                    '1:1',
-                ]),
+                ->imageEditor()->maxFiles(3)
+                ->imageResizeTargetWidth('2920')
+                ->imageResizeTargetHeight('1080'),
                 FileUpload::make('mobile')->multiple()->image()
                 ->disk('public')->directory('banners/mobile')
-                ->imageEditor()->maxFiles(2)
-                ->imageEditorAspectRatios([
-                    '16:9',
-                    '4:3',
-                    '1:1',
-                ])
+                ->imageEditor()->maxFiles(3)
+                ->imageResizeTargetWidth('800')
+                ->imageResizeTargetHeight('180'),
             ]);
     }
 
@@ -60,12 +54,12 @@ class BannerResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                //Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Tables\Actions\BulkActionGroup::make([
+                //     Tables\Actions\DeleteBulkAction::make(),
+                // ]),
             ]);
     }
 

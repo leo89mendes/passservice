@@ -7,7 +7,7 @@
     <div class="menu desktop w-full py-6 bg-white border-b-2 border-black justify-center hidden md:block">
         <div class="flex h-10 items-center justify-center">
             @foreach ($menu as $m)
-                <div class="px-4 hover:text-[#86cee9] cursor-pointer">{{ $m->menu }}</div>
+                <div class="px-4 hover:text-[#86cee9] cursor-pointer ">{{ $m->menu }}</div>
             @endforeach
             <div class="work-time md:grid grid-flow-col grid-rows-2 px-6">
                 <div class="row-span-2 self-center pr-2"><img src="{{ asset('/storage/images/icons/hour.png') }}" /></div>
@@ -53,9 +53,11 @@
     </div>
     <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "friction": 0.5, "pageDots": false, "adaptiveHeight": true, "accessibility": true, "autoplay": true, "autoPlay": 10000 }'>
         @foreach($banners as $banner => $b)
-            <div class="md:max-h-[380px]  w-full">
-                <img src="{{ asset('/storage/' . $b['desktop'][0]) }}" />
-            </div>
+            @foreach($b['desktop'] as $v)
+                <div class=" w-full">
+                    <img class="w-full" src="{{ asset('/storage/' . $v ) }}" />
+                </div>
+            @endforeach
         @endforeach
     </div>
     <div class="aboutUs w-full">

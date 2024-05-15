@@ -15,5 +15,5 @@ document.getElementById('menuMobile').onclick = function(e){
         document.getElementById('open').style.display = 'block'
         document.getElementById('close').style.display = 'none'
     }
-   
 };
+
