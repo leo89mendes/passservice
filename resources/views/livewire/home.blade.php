@@ -79,10 +79,10 @@
         </div>
         <div class="social_icons flex justify-center my-4 md:m-0">
             <div class="facebook mx-2 sm:justify-end">
-                <img class="md:float-right cursor-pointer" src="images/icons/facebook.png" />
+                <img class="md:float-right cursor-pointer" src="{{ asset('storage/images/icons/facebook.png') }}" />
             </div>
             <div class="instagram mx-2 flex sm:justify-left">
-            <img class="cursor-pointer" src="images/icons/instagram.png" />
+            <img class="cursor-pointer" src="{{ asset('storage/images/icons/instagram.png') }}" />
             </div>
 
         </div>
