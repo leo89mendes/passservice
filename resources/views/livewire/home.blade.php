@@ -7,7 +7,7 @@
     <div class="menu desktop w-full py-6 bg-white border-b-2 border-[#0D72BE] justify-center hidden md:block">
         <div class="flex h-10 items-center justify-center">
             @foreach ($menu as $m)
-                <div class="px-4 hover:text-[#86cee9] cursor-pointer ">{{ $m->menu }}</div>
+                <div class="px-4 hover:text-[#86cee9] cursor-pointer menu "><a href="{{ $m->links }}">{{ $m->menu }}</a></div>
             @endforeach
             <div class="work-time md:grid grid-flow-col grid-rows-2 px-6">
                 <div class="row-span-2 self-center pr-2"><img src="{{ asset('/storage/images/icons/hour.png') }}" /></div>
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="mobile grid  grid-cols-2 bg-white z-10 w-full p-4 md:hidden ">
+    <div class="menu mobile grid  grid-cols-2 bg-white z-10 w-full p-4 md:hidden ">
         <div class="text-[#0D72BE] font-bold uppercase flex items-center text-center">Pass Service</div>
         <!-- <div onmousenter="alert('teste')" class="time flex flex-col text-sm justify-between text-center">
             <div class="row-span-2 self-center pr-2"><img src="images/icons/hour.png" /></div>
@@ -47,11 +47,11 @@
     <div id="menu_mobile" class="hidden absolute w-svw h-full bg-white z-10">
         <ul>
             @foreach ($menu as $m)
-                <li class="px-12 uppercase font-bold text-center text-[#0D72BE] hover:text-[#86cee9] cursor-pointer">{{ $m->menu }}</li>
+                <li class="px-12 uppercase font-bold text-center text-[#0D72BE] hover:text-[#86cee9] cursor-pointer"><a href="{{ $m->links }}">{{ $m->menu }} </a></li>
             @endforeach
         </ul>
     </div>
-    <div class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "friction": 0.5, "pageDots": false, "adaptiveHeight": true, "accessibility": true, "autoplay": true, "autoPlay": 10000 }'>
+    <div id="home" class="main-carousel"  data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "friction": 0.5, "pageDots": false, "adaptiveHeight": true, "accessibility": true, "autoplay": true, "autoPlay": 10000 }'>
         @foreach($banners as $banner => $b)
             @foreach($b['desktop'] as $v)
                 <div class=" w-full">
@@ -60,7 +60,7 @@
             @endforeach
         @endforeach
     </div>
-    <div class="aboutUs w-full">
+    <div id="aboutus" class="aboutUs w-full">
         <div class="p-10 grid md:grid-cols-2">
             <div class="grid-col-1 px-4 text-wrap text-center py-4">
                 <h1 class="text-[#0D72BE] text-2xl uppercase pb-4">{{ $about->title }}</h1>
@@ -89,7 +89,7 @@
 
         </div>
     </div>
-    <div class="service w-full p-10 bg-[#86cee9]">
+    <div id="service" class="service w-full p-10 bg-[#86cee9]">
         <h3 class="text-center uppercase text-white font-bold text-4xl pb-5">{{ $config->service_title }}</h3>
         <div class="flex flex-col max-w-full px-4" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true, "pageDots": false}' >
             @foreach($services as $service)
@@ -105,7 +105,7 @@
             @endforeach
         </div>
     </div>
-    <div class="map w-full"> 
+    <div id="contact" class="map w-full"> 
     <iframe
         width="100%"
         height="380"

@@ -17,3 +17,20 @@ document.getElementById('menuMobile').onclick = function(e){
     }
 };
 
+function scrollToSection(id) {
+    const section = document.querySelector(id);
+    window.scrollTo({
+        behavior: 'smooth',
+        top: section.offsetTop,
+    });
+}
+
+// Attach click event listeners to menu items
+document.querySelectorAll('.menu a').forEach(item => {
+    item.addEventListener('click', event => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const target = event.currentTarget.getAttribute('href');
+        scrollToSection(target);
+    });
+});
+
