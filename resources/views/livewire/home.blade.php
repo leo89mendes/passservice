@@ -10,12 +10,12 @@
                 <div class="px-4 hover:text-[#86cee9] cursor-pointer">{{ $m->menu }}</div>
             @endforeach
             <div class="work-time md:grid grid-flow-col grid-rows-2 px-6">
-                <div class="row-span-2 self-center pr-2"><img src="{{ asset('/storage/images/icons/hour.png' }}" /></div>
+                <div class="row-span-2 self-center pr-2"><img src="{{ asset('/storage/images/icons/hour.png') }}" /></div>
                 <div class="row-span-1 text-[#86cee9]">Horários</div>
                 <div class="row-span-1">{{ $config->time }}</div>
             </div>
             <div class="telephone md:grid grid-flow-col grid-rows-2 px-6">
-                <div class="row-span-2 self-center pr-2"><img src="{{ asset('/storage/images/icons/telephone.png' }}" /></div>
+                <div class="row-span-2 self-center pr-2"><img src="{{ asset('/storage/images/icons/telephone.png') }}" /></div>
                 <div class="row-span-1 text-[#86cee9]">Fale Conosco</div>
                 <div class="row-span-1">{{ $config->mobile }}</div>
             </div>
