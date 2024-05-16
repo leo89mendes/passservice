@@ -35,9 +35,9 @@ class BannerResource extends Resource
                 FileUpload::make('mobile')->multiple()->image()
                 ->disk('public')->directory('banners/mobile')
                 ->imageEditor()->maxFiles(3)
-                ->imageResizeTargetWidth('800')
-                ->minSize(480)
-                ->imageResizeTargetHeight('180'),
+                ->imageResizeTargetWidth('700')
+                ->minSize(350)
+                ->imageResizeTargetHeight('240'),
             ]);
     }
 
